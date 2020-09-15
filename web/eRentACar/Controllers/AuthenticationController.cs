@@ -34,10 +34,10 @@ namespace eRentACar.Controllers
 
                 db.AuthenticationTokens.Add(new AuthenticationToken
                 {
-                    Vrijednost = a.Token,
-                    TuristId = a.UserId,
-                    VrijemeEvidentiranja = DateTime.Now,
-                    IpAdresa = "..."
+                    Value = a.Token,
+                    UserId = a.UserId,
+                    Time = DateTime.Now,
+                    IpAddress = "..."
                 });
 
                 db.SaveChanges();

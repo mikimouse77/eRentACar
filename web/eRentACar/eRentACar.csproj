@@ -102,12 +102,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\AuthToken.cs" />
-    <Compile Include="Migrations\202009151746148_initial.cs" />
-    <Compile Include="Migrations\202009151746148_initial.Designer.cs">
-      <DependentUpon>202009151746148_initial.cs</DependentUpon>
+    <Compile Include="Migrations\202009152117152_initial.cs" />
+    <Compile Include="Migrations\202009152117152_initial.Designer.cs">
+      <DependentUpon>202009152117152_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\AutorizacijskiToken.cs" />
+    <Compile Include="Models\AuthenticationToken.cs" />
     <Compile Include="Models\RentACarContext.cs" />
     <Compile Include="Models\Rental.cs" />
     <Compile Include="Models\Car.cs" />
@@ -136,8 +136,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202009151746148_initial.resx">
-      <DependentUpon>202009151746148_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202009152117152_initial.resx">
+      <DependentUpon>202009152117152_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

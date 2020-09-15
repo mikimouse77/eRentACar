@@ -18,11 +18,11 @@ namespace eRentACar.Controllers
             if (CheckToken() == false)
                 return Unauthorized();
 
-            int IDint = Convert.ToInt32(userId);
+            var id = Convert.ToInt32(userId);
 
-            RentalsResultVM model = new RentalsResultVM
+            var model = new RentalsResultVM
             {
-                rows = db.Rentals.Where(s => s.UserId == IDint).Select(s => new RentalsResultVM.Row
+                rows = db.Rentals.Where(s => s.UserId == id).Select(s => new RentalsResultVM.Row
                 {
                     RentalId = s.RentalId,
                     UserId = s.UserId,
@@ -30,10 +30,7 @@ namespace eRentACar.Controllers
                     CarName = s.Car.CarName,
                     FromDate = s.FromDate,
                     ToDate = s.ToDate,
-                    Price =
-                         Math.Round(((s.ToDate.Day - s.FromDate.Day + 1) * s.Car.Price), 2)
-                         .ToString()
-
+                    Price = Math.Round(((s.ToDate.Day - s.FromDate.Day + 1) * s.Car.Price), 2).ToString()
                 }).ToList()
             };
 
@@ -43,10 +40,10 @@ namespace eRentACar.Controllers
         [Route("api/GetRentals/{rezervacijaID}")]
         public IHttpActionResult getRezervaciju(string rezervacijaID)
         {
-            int IDint = Convert.ToInt32(rezervacijaID);
-            Rental rezervacija = db.Rentals.Where(s => s.RentalId == IDint).FirstOrDefault();
+            var id = Convert.ToInt32(rezervacijaID);
+            var rezervacija = db.Rentals.Where(s => s.RentalId == id).FirstOrDefault();
 
-            GetRentalResultVM model = new GetRentalResultVM
+            var model = new GetRentalResultVM
             {
                 RentalId = rezervacija.RentalId,
                 CarName = rezervacija.Car.CarName,

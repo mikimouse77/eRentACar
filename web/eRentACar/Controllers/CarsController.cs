@@ -11,52 +11,52 @@ namespace eRentACar.Controllers
 {
     public class CarsController : AuthToken
     {
-        private RentACarContext baza = new RentACarContext();
-
+        private RentACarContext ctx = new RentACarContext();
 
         [Route("api/Cars/GetCars/{fromDate},{toDate}")]
         public IHttpActionResult GetCars(string fromDate, string toDate)
         {
-            DateTime OD = Convert.ToDateTime(fromDate);
+            var from = Convert.ToDateTime(fromDate);
 
-            GetCarsResultVM model = new GetCarsResultVM();
-            DateTime DO = Convert.ToDateTime(toDate);
+            var model = new GetCarsResultVM();
+            var to = Convert.ToDateTime(toDate);
 
-            List<Rental> sveRezervacije = baza.Rentals.ToList();
-            List<Rental> zauzeteRezervacije = new List<Rental>();
+            var rentals = ctx.Rentals.ToList();
+            var reservedRentals = new List<Rental>();
 
-            foreach (var sveRez in sveRezervacije)
+            foreach (var rental in rentals)
             {
-                if ((DO >= sveRez.FromDate) && (DO <= sveRez.ToDate))
+                if ((to >= rental.FromDate) && (to <= rental.ToDate))
                 {
-                    zauzeteRezervacije.Add(sveRez);
+                    reservedRentals.Add(rental);
                 }
-                if ((OD >= sveRez.FromDate) && (DO <= sveRez.ToDate))
+                if ((from >= rental.FromDate) && (to <= rental.ToDate))
                 {
-                    zauzeteRezervacije.Add(sveRez);
+                    reservedRentals.Add(rental);
                 }
-                if ((OD >= sveRez.FromDate) && (OD <= sveRez.ToDate))
+                if ((from >= rental.FromDate) && (from <= rental.ToDate))
                 {
-                    zauzeteRezervacije.Add(sveRez);
+                    reservedRentals.Add(rental);
                 }
-                if ((OD < sveRez.FromDate) && (DO > sveRez.ToDate))
+                if ((from < rental.FromDate) && (to > rental.ToDate))
                 {
-                    zauzeteRezervacije.Add(sveRez);
+                    reservedRentals.Add(rental);
                 }
             }
-            List<Car> sveSobe = baza.Cars.ToList();
-            List<Car> slobodneSobe = new List<Car>();
 
-            if (zauzeteRezervacije.Count == 0)
+            var allCars = ctx.Cars.ToList();
+            var freeCars = new List<Car>();
+
+            if (reservedRentals.Count == 0)
             {
-                slobodneSobe = baza.Cars.ToList();
+                freeCars = ctx.Cars.ToList();
             }
             else
             {
-                foreach (var soba in sveSobe)
+                foreach (var soba in allCars)
                 {
                     bool zabrani = false;
-                    foreach (var rez in zauzeteRezervacije)
+                    foreach (var rez in reservedRentals)
                     {
                         if (soba.CarId == rez.CarId)
                         {
@@ -65,22 +65,23 @@ namespace eRentACar.Controllers
                     }
                     if (!zabrani)
                     {
-                        slobodneSobe.Add(soba);
+                        freeCars.Add(soba);
                     }
                 }
             }
 
 
-            if (slobodneSobe.Count != 0)
+            if (freeCars.Count != 0)
             {
-                model.rows = slobodneSobe.Select(x => new GetCarsResultVM.Row
+                model.rows = freeCars.Select(x => new GetCarsResultVM.Row
                 {
                     CarId = x.CarId,
                     CarName = x.CarName,
                     Price = x.Price,
-                    FromDate = OD.ToString(),
-                    ToDate = DO.ToString()
+                    FromDate = from.ToString(),
+                    ToDate = to.ToString()
                 }).ToList();
+
                 return Ok(model);
             }
             else
@@ -91,28 +92,28 @@ namespace eRentACar.Controllers
         }
 
         [ResponseType(typeof(Car))]
-        public IHttpActionResult PostCar([FromBody] RentalPostVM soba)
+        public IHttpActionResult PostCar([FromBody] RentalPostVM rental)
         {
-            DateTime datumOD = Convert.ToDateTime(soba.From);
-            DateTime datumDO = Convert.ToDateTime(soba.To);
+            var fromDate = Convert.ToDateTime(rental.From);
+            var toDate = Convert.ToDateTime(rental.To);
 
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-            Rental rezervacija = new Rental
+
+            var rezervacija = new Rental
             {
-                CarId = soba.CarId,
-                UserId = soba.UserId,
-                FromDate = Convert.ToDateTime(soba.From),
-                ToDate = Convert.ToDateTime(soba.To)
+                CarId = rental.CarId,
+                UserId = rental.UserId,
+                FromDate = Convert.ToDateTime(rental.From),
+                ToDate = Convert.ToDateTime(rental.To)
             };
 
-            baza.Rentals.Add(rezervacija);
-            baza.SaveChanges();
+            ctx.Rentals.Add(rezervacija);
+            ctx.SaveChanges();
 
             return Ok();
         }
-
     }
 }

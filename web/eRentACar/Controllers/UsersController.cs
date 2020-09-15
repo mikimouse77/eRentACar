@@ -1,6 +1,7 @@
 ﻿using eRentACar.Helper;
 using eRentACar.Models;
 using System;
+using System.Data.Entity.Validation;
 using System.Web.Http;
 using System.Web.Http.Description;
 
@@ -19,15 +20,14 @@ namespace eRentACar.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Users.Add(user);
-
             try
             {
+                db.Users.Add(user);
                 db.SaveChanges();
             }
-            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            catch (DbEntityValidationException dbEx)
             {
-                Exception raise = dbEx;
+                Exception ex = dbEx;
                 foreach (var validationErrors in dbEx.EntityValidationErrors)
                 {
                     foreach (var validationError in validationErrors.ValidationErrors)
@@ -35,13 +35,11 @@ namespace eRentACar.Controllers
                         string message = string.Format("{0}:{1}",
                             validationErrors.Entry.Entity.ToString(),
                             validationError.ErrorMessage);
-                        // raise a new exception nesting
-                        // the current instance as InnerException
-                        raise = new InvalidOperationException(message, raise);
+                        ex = new InvalidOperationException(message, ex);
                     }
                 }
 
-                throw raise;
+                throw ex;
             }
 
             return Ok();

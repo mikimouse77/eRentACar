@@ -27,12 +27,12 @@ namespace eRentACar.Helper
             string token = GetAuthToken();
 
             AuthenticationToken TokenCheck = db.AuthenticationTokens
-                .Where(s => s.Vrijednost == token)
+                .Where(s => s.Value == token)
                 .FirstOrDefault();
 
             if (TokenCheck != null)
             {
-                if (TokenCheck.VrijemeEvidentiranja >= DateTime.Now.AddDays(-2)) // token moze biti star 2 dana
+                if (TokenCheck.Time >= DateTime.Now.AddDays(-2))
                 {
                     return true;
                 }
@@ -45,7 +45,7 @@ namespace eRentACar.Helper
             string token = GetAuthToken();
 
             AuthenticationToken TokenCheck = db.AuthenticationTokens
-                .Where(s => s.Vrijednost == token)
+                .Where(s => s.Value == token)
                 .FirstOrDefault();
 
             if (TokenCheck != null)
