@@ -56,9 +56,9 @@ namespace eRentACar.Controllers
                 foreach (var car in allCars)
                 {
                     var check = false;
-                    foreach (var rez in reservedRentals)
+                    foreach (var rentalItem in reservedRentals)
                     {
-                        if (car.CarId == rez.CarId)
+                        if (car.CarId == rentalItem.CarId)
                         {
                             check = true;
                         }
