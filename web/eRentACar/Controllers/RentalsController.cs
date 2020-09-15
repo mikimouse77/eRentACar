@@ -13,7 +13,7 @@ namespace eRentACar.Controllers
 
         [HttpGet]
         [Route("api/Rentals/getRentalsByUserId/{userId}")]
-        public IHttpActionResult getRezervacijeByTuristID(string userId)
+        public IHttpActionResult GetRentalsByUserId(string userId)
         {
             if (CheckToken() == false)
                 return Unauthorized();
@@ -38,7 +38,7 @@ namespace eRentACar.Controllers
         }
         [HttpGet]
         [Route("api/GetRentals/{rezervacijaID}")]
-        public IHttpActionResult getRezervaciju(string rezervacijaID)
+        public IHttpActionResult GetRentals(string rezervacijaID)
         {
             var id = Convert.ToInt32(rezervacijaID);
             var rezervacija = db.Rentals.Where(s => s.RentalId == id).FirstOrDefault();

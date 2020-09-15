@@ -53,19 +53,19 @@ namespace eRentACar.Controllers
             }
             else
             {
-                foreach (var soba in allCars)
+                foreach (var car in allCars)
                 {
-                    bool zabrani = false;
+                    var check = false;
                     foreach (var rez in reservedRentals)
                     {
-                        if (soba.CarId == rez.CarId)
+                        if (car.CarId == rez.CarId)
                         {
-                            zabrani = true;
+                            check = true;
                         }
                     }
-                    if (!zabrani)
+                    if (!check)
                     {
-                        freeCars.Add(soba);
+                        freeCars.Add(car);
                     }
                 }
             }
@@ -94,9 +94,6 @@ namespace eRentACar.Controllers
         [ResponseType(typeof(Car))]
         public IHttpActionResult PostCar([FromBody] RentalPostVM rental)
         {
-            var fromDate = Convert.ToDateTime(rental.From);
-            var toDate = Convert.ToDateTime(rental.To);
-
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
