@@ -61,17 +61,17 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.pocetna) {
+        if (id == R.id.home) {
             Util.otvoriFragmentKaoReplace(this, R.id.fragmentPlace, Home.newInstance());
 
         } else if (id == R.id.cars) {
             Util.otvoriFragmentKaoReplace(this, R.id.fragmentPlace, CarList.newInstance());
 
-        } else if (id == R.id.rezervacije) {
+        } else if (id == R.id.rentals) {
             int userId = Global.AuthenticatedUser.UserId;
             Util.otvoriFragmentKaoReplace(this, R.id.fragmentPlace, RentalsList.newInstance(userId));
 
-        } else if (id == R.id.odjava) {
+        } else if (id == R.id.signout) {
             MyApiRequest.delete(this, "api/Autentifikacija/Logout", null);
             startActivity(new Intent(this, Login.class));
         }

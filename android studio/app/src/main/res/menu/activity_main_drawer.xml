@@ -6,7 +6,7 @@
     <group android:checkableBehavior="single"
         >
         <item
-            android:id="@+id/pocetna"
+            android:id="@+id/home"
             android:icon="@drawable/ic_home_black_24dp"
             android:title="Pocetna"
             />
@@ -15,11 +15,11 @@
             android:icon="@drawable/ic_car"
             android:title="Automobili" />
         <item
-            android:id="@+id/rezervacije"
+            android:id="@+id/rentals"
             android:icon="@drawable/ic_format_list_bulleted_black_24dp"
             android:title="Rentani automobili" />
         <item
-            android:id="@+id/odjava"
+            android:id="@+id/signout"
             android:icon="@drawable/ic_assignment_return_black_24dp"
             android:title="Odjava" />
     </group>

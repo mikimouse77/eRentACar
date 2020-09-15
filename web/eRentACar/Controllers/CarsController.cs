@@ -99,7 +99,7 @@ namespace eRentACar.Controllers
                 return BadRequest(ModelState);
             }
 
-            var rezervacija = new Rental
+            var model = new Rental
             {
                 CarId = rental.CarId,
                 UserId = rental.UserId,
@@ -107,7 +107,7 @@ namespace eRentACar.Controllers
                 ToDate = Convert.ToDateTime(rental.To)
             };
 
-            ctx.Rentals.Add(rezervacija);
+            ctx.Rentals.Add(model);
             ctx.SaveChanges();
 
             return Ok();

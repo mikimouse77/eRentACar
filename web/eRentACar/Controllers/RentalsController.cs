@@ -37,20 +37,20 @@ namespace eRentACar.Controllers
             return Ok(model);
         }
         [HttpGet]
-        [Route("api/GetRentals/{rezervacijaID}")]
-        public IHttpActionResult GetRentals(string rezervacijaID)
+        [Route("api/GetRentals/{rentalId}")]
+        public IHttpActionResult GetRentals(string rentalId)
         {
-            var id = Convert.ToInt32(rezervacijaID);
-            var rezervacija = db.Rentals.Where(s => s.RentalId == id).FirstOrDefault();
+            var id = Convert.ToInt32(rentalId);
+            var rental = db.Rentals.Where(s => s.RentalId == id).FirstOrDefault();
 
             var model = new GetRentalResultVM
             {
-                RentalId = rezervacija.RentalId,
-                CarName = rezervacija.Car.CarName,
-                FromDate = rezervacija.FromDate,
-                ToDate = rezervacija.ToDate,
+                RentalId = rental.RentalId,
+                CarName = rental.Car.CarName,
+                FromDate = rental.FromDate,
+                ToDate = rental.ToDate,
                 Price =
-                    Math.Round(((rezervacija.ToDate.Day - rezervacija.FromDate.Day + 1) * rezervacija.Car.Price), 2)
+                    Math.Round(((rental.ToDate.Day - rental.FromDate.Day + 1) * rental.Car.Price), 2)
                     .ToString()
             };
 
