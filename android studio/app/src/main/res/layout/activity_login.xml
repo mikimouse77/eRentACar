@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/imgRentACar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/slika_rentacar"
+        app:srcCompat="@drawable/erentacar" />
+
+    <TextView
+        android:id="@+id/rentACar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="eRent-A-Car"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/userName"
+            android:hint="Korisnicko ime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Lozinka"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
+    <Button
+    android:layout_marginTop="25dp"
+    android:id="@+id/btnLogin"
+    android:text="prijava"
+    android:textStyle="bold"
+    android:background="@color/colorPrimary"
+    android:textColor="@android:color/white"
+    android:layout_marginLeft="100dp"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content" />
+
+    <Button
+      android:layout_marginTop="10dp"
+        android:id="@+id/btnRegister"
+        android:text="registracija"
+        android:textStyle="bold"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:layout_marginLeft="100dp"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

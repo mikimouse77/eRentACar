@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/carName"
+        android:text="Naziv auta"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:layout_width="240dp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/rentalDate"
+        android:layout_below="@+id/carName"
+        android:paddingTop="7dp"
+
+        android:layout_width="170dp"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:id="@+id/Ukupno"
+        android:text="Ukupno: "
+        android:layout_below="@+id/carName"
+        android:paddingTop="7dp"
+        android:layout_toRightOf="@id/rentalDate"
+        android:layout_marginLeft="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/rentalPrice"
+
+        android:layout_below="@+id/carName"
+        android:paddingTop="7dp"
+        android:layout_toRightOf="@+id/Ukupno"
+        android:layout_width="105dp"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
