@@ -14,7 +14,7 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/cijenaTermina"
+        android:id="@+id/priceDay"
         android:layout_below="@+id/carNameRentals"
         android:paddingTop="7dp"
         android:text="Cijena po danu: "
@@ -26,7 +26,7 @@
 
         android:layout_below="@id/carNameRentals"
         android:paddingTop="7dp"
-        android:layout_toRightOf="@+id/cijenaTermina"
+        android:layout_toRightOf="@+id/priceDay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </RelativeLayout>

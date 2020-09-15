@@ -7,7 +7,7 @@
     android:padding="15dp">
 
     <ImageView
-        android:id="@+id/slikaNote"
+        android:id="@+id/imgCar"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_alignParentTop="true"
@@ -18,23 +18,23 @@
 
 
     <TextView
-        android:id="@+id/textViewProstorija"
+        android:id="@+id/textViewCar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/slikaNote"
+        android:layout_below="@+id/imgCar"
         android:layout_marginTop="20dp"
         android:text="Automobil"
         android:textSize="17dp" />
 
     <TextView
         android:id="@+id/carName"
-        android:layout_below="@+id/textViewProstorija"
+        android:layout_below="@+id/textViewCar"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/textViewTrajanjeRezervacije"
+        android:id="@+id/textViewRentalTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/carName"
@@ -44,13 +44,13 @@
 
     <TextView
         android:id="@+id/rentTime"
-        android:layout_below="@+id/textViewTrajanjeRezervacije"
+        android:layout_below="@+id/textViewRentalTime"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/textViewCijena"
+        android:id="@+id/textViewPrice"
         android:layout_below="@+id/rentTime"
         android:layout_marginTop="20dp"
         android:textSize="17dp"
@@ -60,7 +60,7 @@
 
     <TextView
         android:id="@+id/rentalPrice"
-        android:layout_below="@+id/textViewCijena"
+        android:layout_below="@+id/textViewPrice"
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

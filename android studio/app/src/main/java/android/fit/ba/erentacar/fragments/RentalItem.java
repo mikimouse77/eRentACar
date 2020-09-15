@@ -68,7 +68,7 @@ public class RentalItem extends Fragment {
     }
 
     private void FillData() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String from = sdf.format(rentalVM.FromDate);
         String to = sdf.format(rentalVM.ToDate);
 

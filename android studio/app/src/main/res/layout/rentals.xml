@@ -15,7 +15,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/txtDatum"
+        android:id="@+id/txtDate"
         android:text="Unesite datum početka i završetka vaše rezervacije."
         android:layout_width="match_parent"
         android:textStyle="bold"
@@ -26,7 +26,7 @@
         android:paddingBottom="5dp"/>
 
     <Button
-        android:layout_below="@id/txtDatum"
+        android:layout_below="@id/txtDate"
         android:id="@+id/fromDate"
         android:text="od"
         android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
     <Button
         android:id="@+id/toDate"
         android:text="do"
-        android:layout_below="@+id/txtDatum"
+        android:layout_below="@+id/txtDate"
         android:layout_toRightOf="@+id/fromDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -43,7 +43,7 @@
     <Button
         android:id="@+id/search"
         android:text="trazi"
-        android:layout_below="@+id/txtDatum"
+        android:layout_below="@+id/txtDate"
         android:layout_toRightOf="@+id/toDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

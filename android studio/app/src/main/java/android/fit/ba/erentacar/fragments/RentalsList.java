@@ -103,7 +103,7 @@ public class RentalsList extends Fragment {
 
                     RentalsResultVM.Row x = data.rows.get(position);
 
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                     String from = sdf.format(x.FromDate);
                     String to = sdf.format(x.ToDate);
 

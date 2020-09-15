@@ -6,7 +6,7 @@
     android:padding="15dp">
 
     <TextView
-        android:id="@+id/textViewRezervacija"
+        android:id="@+id/textViewRental"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Rentani automobili"
@@ -16,7 +16,7 @@
 
     <ListView
         android:id="@+id/rentalsList"
-        android:layout_below="@+id/textViewRezervacija"
+        android:layout_below="@+id/textViewRental"
         android:paddingTop="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
