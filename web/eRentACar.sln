@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eRentACar", "eRentACar\eRentACar.csproj", "{1E1F8D90-63A0-4F5C-8668-E4BD3228511D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E1F8D90-63A0-4F5C-8668-E4BD3228511D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E1F8D90-63A0-4F5C-8668-E4BD3228511D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E1F8D90-63A0-4F5C-8668-E4BD3228511D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E1F8D90-63A0-4F5C-8668-E4BD3228511D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D71320FA-C324-42F3-9378-45BEF1AE1E67}
+	EndGlobalSection
+EndGlobal

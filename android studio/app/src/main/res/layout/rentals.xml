@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/textViewCars"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rentanje automobila"
+        android:textColor="@android:color/black"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:text="Unesite datum početka i završetka vaše rezervacije."
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:textColor="@android:color/black"
+        android:layout_below="@+id/textViewCars"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"/>
+
+    <Button
+        android:layout_below="@id/txtDate"
+        android:id="@+id/fromDate"
+        android:text="od"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/toDate"
+        android:text="do"
+        android:layout_below="@+id/txtDate"
+        android:layout_toRightOf="@+id/fromDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/search"
+        android:text="trazi"
+        android:layout_below="@+id/txtDate"
+        android:layout_toRightOf="@+id/toDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <ListView
+        android:id="@+id/listCars"
+        android:layout_below="@+id/fromDate"
+        android:paddingTop="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+</RelativeLayout>
