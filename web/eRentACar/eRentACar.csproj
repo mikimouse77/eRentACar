@@ -106,6 +106,10 @@
     <Compile Include="Migrations\202009152117152_initial.Designer.cs">
       <DependentUpon>202009152117152_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009161125383_AddImage.cs" />
+    <Compile Include="Migrations\202009161125383_AddImage.Designer.cs">
+      <DependentUpon>202009161125383_AddImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AuthenticationToken.cs" />
     <Compile Include="Models\RentACarContext.cs" />
@@ -138,6 +142,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202009152117152_initial.resx">
       <DependentUpon>202009152117152_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009161125383_AddImage.resx">
+      <DependentUpon>202009161125383_AddImage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -24,14 +24,11 @@
         android:textSize="17dp" />
 
     <ImageView
-        android:id="@+id/imgCar"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:id="@+id/imgRentedCar"
+        android:layout_width="388dp"
+        android:layout_height="251dp"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="90dp"
-        android:layout_marginTop="84dp"
-        android:src="@drawable/ic_writing"
-        app:srcCompat="@drawable/car" />
+        android:layout_marginTop="58dp" />
 
     <TextView
         android:id="@+id/textViewCar"

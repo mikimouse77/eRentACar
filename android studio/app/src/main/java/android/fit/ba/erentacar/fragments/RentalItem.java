@@ -9,8 +9,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.fit.ba.erentacar.R;
+
+import com.squareup.picasso.Picasso;
 
 import java.text.SimpleDateFormat;
 
@@ -26,6 +29,7 @@ public class RentalItem extends Fragment {
     private TextView rentTime;
     private TextView carName;
     private TextView price;
+    private ImageView imageView;
 
     public static RentalItem newInstance(int rentalId) {
         RentalItem fragment = new RentalItem();
@@ -53,8 +57,10 @@ public class RentalItem extends Fragment {
         carName = view.findViewById(R.id.carName);
         rentTime = view.findViewById(R.id.rentTime);
         price = view.findViewById(R.id.rentalPrice);
+        imageView = view.findViewById(R.id.imgRentedCar);
 
         GetData();
+
         return view;
     }
 
@@ -75,5 +81,7 @@ public class RentalItem extends Fragment {
         carName.setText(rentalVM.CarName);
         rentTime.setText(from + "   -   " + to);
         price.setText(rentalVM.Price + " KM");
+
+        Picasso.get().load(rentalVM.Image).into(imageView);
     }
 }

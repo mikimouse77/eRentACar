@@ -24,7 +24,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class CarList extends Fragment {
     private ListView carList;
@@ -121,12 +125,26 @@ public class CarList extends Fragment {
                 fromDate = (fromMonth + 1) + "-" + fromDay + "-" + fromYear;
                 toDate = (toMonth + 1) + "-" + toDay + "-" + toYear;
 
-                String price = String.valueOf((int) Double.parseDouble(rentals.rows.get(position).Price));
-                String totalPrice = String.valueOf((toDay - fromDay + 1) * Integer.parseInt(price));
+                String totalPrice;
+                SimpleDateFormat myFormat = new SimpleDateFormat("MM-dd-yyyy");
 
-                int carId = rentals.rows.get(position).CarId;
-                String carName = rentals.rows.get(position).CarName;
-                Util.otvoriFragmentKaoReplace(getActivity(), R.id.fragmentPlace, Car.newInstance(totalPrice, carId, carName, fromDate, toDate));
+                try {
+                    Date date1 = (Date) myFormat.parse(fromDate);
+                    Date date2 = (Date) myFormat.parse(toDate);
+                    long diff = date2.getTime() - date1.getTime();
+                    long diffDays = TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
+
+                    String price = String.valueOf((int) Double.parseDouble(rentals.rows.get(position).Price));
+                    totalPrice = String.valueOf((diffDays + 1) * Integer.parseInt(price));
+
+                    String img = rentals.rows.get(position).Image;
+                    int carId = rentals.rows.get(position).CarId;
+                    String carName = rentals.rows.get(position).CarName;
+                    Util.otvoriFragmentKaoReplace(getActivity(), R.id.fragmentPlace, Car.newInstance(totalPrice, carId, carName, fromDate, toDate, img));
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -138,12 +156,12 @@ public class CarList extends Fragment {
         fromDate = (fromMonth + 1) + "-" + fromDay + "-" + fromYear;
         toDate = (toMonth + 1) + "-" + toDay + "-" + toYear;
 
-        if(fromMonth == 0){
+        if (fromMonth == 0) {
             Toast.makeText(getActivity(), "Izaberite datum OD!", Toast.LENGTH_LONG).show();
             return;
         }
 
-        if(toMonth == 0){
+        if (toMonth == 0) {
             Toast.makeText(getActivity(), "Izaberite datum DO!", Toast.LENGTH_LONG).show();
             return;
         }

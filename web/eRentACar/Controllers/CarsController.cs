@@ -77,6 +77,7 @@ namespace eRentACar.Controllers
                 {
                     CarId = x.CarId,
                     CarName = x.CarName,
+                    Image = x.Image,
                     Price = x.Price,
                     FromDate = from.ToString(),
                     ToDate = to.ToString()

@@ -8,5 +8,6 @@ namespace eRentACar.Models
         public int CarId { get; set; }
         public string CarName { get; set; }
         public decimal Price { get; set; }
+        public string Image { get; set; }
     }
 }

@@ -7,6 +7,7 @@ public class GetRentalsResultVM implements Serializable {
     public static class Row implements Serializable {
         public int CarId;
         public String CarName;
+        public String Image;
         public String Price;
         public String FromDate;
         public String ToDate;

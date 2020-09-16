@@ -9,5 +9,6 @@ namespace eRentACar.ModelVM
         public DateTime ToDate { get; internal set; }
         public string Price { get; internal set; }
         public DateTime FromDate { get; internal set; }
+        public string Image { get; internal set; }
     }
 }
