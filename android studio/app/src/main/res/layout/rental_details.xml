@@ -25,10 +25,10 @@
 
     <ImageView
         android:id="@+id/imgRentedCar"
-        android:layout_width="388dp"
-        android:layout_height="251dp"
+        android:layout_width="395dp"
+        android:layout_height="146dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="58dp" />
+        android:layout_marginTop="41dp" />
 
     <TextView
         android:id="@+id/textViewCar"

@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imgCar"
-        android:layout_width="397dp"
-        android:layout_height="296dp"
+        android:layout_width="386dp"
+        android:layout_height="177dp"
         android:layout_alignParentTop="true"
         android:layout_marginTop="0dp" />
 
