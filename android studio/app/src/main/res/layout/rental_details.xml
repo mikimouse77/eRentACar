@@ -34,7 +34,7 @@
         android:id="@+id/textViewCar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imgCar"
+        android:layout_below="@+id/imgRentedCar"
         android:layout_marginTop="20dp"
         android:text="Automobil"
         android:textSize="17dp" />

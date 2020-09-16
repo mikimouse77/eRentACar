@@ -22,15 +22,17 @@ namespace eRentACar.Controllers
 
             var model = new RentalsResultVM
             {
-                rows = db.Rentals.Where(s => s.UserId == id).Select(rental => new RentalsResultVM.Row
+                rows = db.Rentals.Where(s => s.UserId == id)
+                .ToList()
+                .Select(s => new RentalsResultVM.Row
                 {
-                    RentalId = rental.RentalId,
-                    UserId = rental.UserId,
-                    CarId = rental.CarId,
-                    CarName = rental.Car.CarName,
-                    FromDate = rental.FromDate,
-                    ToDate = rental.ToDate,
-                    Price = Math.Round((((int)(rental.ToDate - rental.FromDate).TotalDays + 1) * rental.Car.Price), 2).ToString()
+                    RentalId = s.RentalId,
+                    UserId = s.UserId,
+                    CarId = s.CarId,
+                    CarName = s.Car.CarName,
+                    FromDate = s.FromDate,
+                    ToDate = s.ToDate,
+                    Price = (((decimal)((s.ToDate - s.FromDate).TotalDays + 1)) * s.Car.Price).ToString()
                 }).ToList()
             };
 
@@ -48,10 +50,10 @@ namespace eRentACar.Controllers
                 RentalId = rental.RentalId,
                 CarName = rental.Car.CarName,
                 FromDate = rental.FromDate,
-                Image = rental.Car.Image,
                 ToDate = rental.ToDate,
+                Image = rental.Car.Image,
                 Price =
-                    Math.Round((((int)(rental.ToDate - rental.FromDate).TotalDays + 1) * rental.Car.Price), 2)
+                  ((decimal)((rental.ToDate - rental.FromDate).TotalDays + 1) * rental.Car.Price)
                     .ToString()
             };
 
